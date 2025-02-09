@@ -1,0 +1,33 @@
+import java.util.*;
+  public class Main {
+    public static void main(String[] args) {
+        int randomnumber=generateRandomNumber();
+        guessNumber(randomnumber);
+    }
+    public static int generateRandomNumber(){
+       Random random=new Random();
+        int a=1;
+        int b=100;
+        return random.nextInt(b-a+1)+a;
+    }
+    public static void guessNumber(int randomnumber){
+        Scanner sc=new Scanner(System.in);
+        int attempts=0;
+        while(true){
+             System.out.print("Guess the between(1to100)and enter:");
+        int guess=sc.nextInt();
+        attempts++;
+        if(guess<randomnumber)
+        System.out.println("Too Low!,Try Again");
+        else 
+          if(guess>randomnumber)
+            System.out.println("Too High!,Try Again");
+            else{
+            System.out.println("Congrats: your guess number and random number are the same. " + 
+                   "You guessed the number in " + attempts + " attempts.");
+
+                break;
+              }
+            }
+}
+}
