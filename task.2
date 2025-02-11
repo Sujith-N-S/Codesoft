@@ -1,0 +1,54 @@
+import java.util.Scanner;
+class Main{
+public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+    System.out.print("Enter the number of subjects: ");
+    int numSubjects=sc.nextInt();
+    int[]marks=new int[numSubjects];
+    int totalmark=0;
+    
+    for(int i=0;i<numSubjects;i++){
+    int mark=0;
+     while(true){
+     System.out.print("Mark of subject"+(i+1)+":");
+           mark=sc.nextInt();
+     
+      if(mark>=0&&mark<=100){
+          break;
+      }
+      else{
+           System.out.println("invalid!,enter the valid mark:");
+      }
+        }
+      marks[i]=mark;
+      totalmark+=marks[i];
+    }
+      double average=(double)totalmark/numSubjects;
+    String grade;
+    if(average>=90){
+      grade="A+";
+    }
+    else if(average>=80){
+      grade="A";
+    }
+    else if(average>=70){
+       grade="B+";
+    }
+    else if(average>=60){
+       grade="B";
+    }
+    else if(average>=50){
+       grade="C";
+    }
+    else{
+       grade="F";
+    }
+     System.out.println("RESULTS:");  
+     System.out.println("Total:"+totalmark);  
+     System.out.println("Average:"+average+"%");
+     System.out.println("Grade:"+grade);
+
+
+     sc.close();
+}
+}
