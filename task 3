@@ -1,0 +1,71 @@
+import java.util.Scanner;
+public class Main {
+    private static double balance = 500.25;
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println(".....WellCome....");
+        int atmnumber=123;
+        int pin=321;
+        System.out.print("Enter the Atm number:");
+        int Atmnumber=sc.nextInt();
+        System.out.print("Enter the Pin:");
+        int Pin=sc.nextInt();
+        if((atmnumber==Atmnumber)&&(pin==Pin)){
+             System.out.println("validation done....");
+             choose();
+        }
+        else{
+            System.out.println("invalid atm number or pin!");
+        }
+    }
+    public static void choose(){
+        while(true){
+         Scanner sc=new Scanner(System.in);
+        System.out.println("\n1.check balance:");
+        System.out.println("2.withdraw:");
+        System.out.println("3.deposit:");
+        System.out.println("4.Exit");
+        System.out.print("choose an option:");
+        int choice=sc.nextInt();
+        switch(choice){
+            case 1:
+            System.out.println("Your balance amount is:$"+balance);
+            break;
+            case 2:
+            System.out.println("Enter the ammount to widthdrwaw:");
+            double withdrawAmount=sc.nextDouble();
+            withdraw(withdrawAmount);
+            break;
+            case 3:
+            System.out.println("Enter the ammount to deposit:");
+            double depositAmount=sc.nextDouble();
+            deposit(depositAmount);
+            break;
+            case 4:
+             System.out.println(".....Thanks for using this Atm....");
+               return;
+             default:
+             System.out.println("Invalid choice!.Enter the correct choice:");
+        }
+        }         
+        
+    }
+        public static void withdraw(double amount){
+            if(amount>0&&amount<=balance){
+                 balance -= amount;
+                System.out.println("Withdrawal successful! New balance: $" + balance);
+            }
+            else {
+            System.out.println("Invalid withdrawal amount or insufficient funds.");
+        }
+        }
+        public static void deposit(double amount){
+            if(amount>0){
+                    balance += amount;
+            System.out.println("Deposit successful! New balance: $" + balance);
+        } 
+        else {
+            System.out.println("Invalid deposit amount.");
+        }
+   }
+}
